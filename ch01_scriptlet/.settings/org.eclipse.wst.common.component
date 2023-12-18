@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+        
     <wb-module deploy-name="ch01_scriptlet">
+                
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+                
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <dependent-module archiveName="ch03_내장객체.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ch03_내장객체/ch03_내장객체">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+                
         <property name="context-root" value="ch01_scriptlet"/>
+                
         <property name="java-output-path" value="/ch01_scriptlet/build/classes"/>
+            
     </wb-module>
+    
 </project-modules>
