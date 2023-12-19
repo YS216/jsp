@@ -12,7 +12,7 @@
 		// String name = request.getParameter("name");
 		String name = "Korea web JSP";
 	%>
-	<H1>Action Tag Include</H1>
+	<h1>Action Tag Include</h1>
 	<jsp:include page="04_2.actionTag_include.jsp"/><p/>
 	include ActionTag의 Body입니다.
 </body>
