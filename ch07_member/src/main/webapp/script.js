@@ -20,6 +20,10 @@ function inputCheck() {
 		frm.id.focus();
 		return;
 	}
+	if(frm.idBtnCheck.value != "idCheck") {
+		alert("아이디 중복체크를 해주세요");
+		return;
+	}
 	if(frm.pwd.value == "") {
 		alert("비밀번호를 입력해 주세요");
 		frm.pwd.focus();
