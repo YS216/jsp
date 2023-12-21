@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*, ch05.*" %>
-<jsp:useBean id="regMgr" class="ch05.RegisterMgr5" />
+<jsp:useBean id="regMgr" class="ch05.RegisterMgrPool6" />
 
 <!DOCTYPE html>
 <html>

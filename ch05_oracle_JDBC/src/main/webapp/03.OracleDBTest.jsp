@@ -6,7 +6,7 @@
 	Statement st=null;
 	ResultSet rs=null;
 	String id, title, location;
-try {
+try{
 	Class.forName("oracle.jdbc.OracleDriver");
 	con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","aie","aie");
 	
@@ -45,7 +45,7 @@ try {
 		%>
 	</table>
 <%
-} catch(Exception e) {
+}  catch(Exception e) {
 	e.printStackTrace();
 } finally {
 	if(rs != null)
