@@ -1,5 +1,7 @@
 package mem;
 
+import java.util.Arrays;
+
 public class Member {
 	private String id;
 	private String pwd;
@@ -10,14 +12,14 @@ public class Member {
 	private String zipcode;
 	private String address;
 	private String detailAddress;
-	private String hobby;
+	private String[] hobby;
 	private String job;
 	
 	public Member() {
 	}
 
 	public Member(String id, String pwd, String name, String gender, String birthday, String email, String zipcode,
-			String address, String detailAddress, String hobby, String job) {
+			String address, String detailAddress, String[] hobby, String job) {
 		super();
 		this.id = id;
 		this.pwd = pwd;
@@ -104,11 +106,11 @@ public class Member {
 		this.detailAddress = detailAddress;
 	}
 
-	public String getHobby() {
+	public String[] getHobby() {
 		return hobby;
 	}
 
-	public void setHobby(String hobby) {
+	public void setHobby(String[] hobby) {
 		this.hobby = hobby;
 	}
 
@@ -124,6 +126,6 @@ public class Member {
 	public String toString() {
 		return "Member [id=" + id + ", pwd=" + pwd + ", name=" + name + ", gender=" + gender + ", birthday=" + birthday
 				+ ", email=" + email + ", zipcode=" + zipcode + ", address=" + address + ", detailAddress="
-				+ detailAddress + ", hobby=" + hobby + ", job=" + job + "]";
+				+ detailAddress + ", hobby=" + Arrays.toString(hobby) + ", job=" + job + "]";
 	}
 }
