@@ -82,6 +82,61 @@ public class VoteDao {
 		}
 		return alist;
 	}
+	
+	// 설문 투표할 질문(1행) 가져오기
+	public VoteList getOneVote(int num) {
+		VoteList vlist = new VoteList();
+		try {
+			con = pool.getConnection();
+			if(num == 0)
+				sql = "select * from voteList order by num desc";
+			else
+				sql = "select * from voteList where num="+num;
+			
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				vlist.setQuestion(rs.getString("question"));
+				vlist.setType(rs.getInt("type"));
+				vlist.setActive(rs.getInt("active"));
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			pool.freeConnection(con, pstmt, rs);
+		}	
+		return vlist;
+	}
+	
+	// 설문 투표할 질문의 item 가져오기
+	public ArrayList<String> getItem(int num) {
+		ArrayList<String> alist = new ArrayList<String>();
+		try {
+			con = pool.getConnection();
+			if(num == 0) {		// 사용자가 설문을 선택하지 않으면 num=0으로 넘겨줄것임
+				// 가장 최신의 설문을 보여줄것임. 그래서 num중에서 가장 큰값을 테이블에서 검색해옴
+				sql = "select max(num) from voteList";	
+				pstmt = con.prepareStatement(sql);
+				rs = pstmt.executeQuery();
+				if(rs.next()) {
+					num = rs.getInt(1);	// 테이블 검색결과 가장 큰값을 num에 넣어줌
+				}
+			}
+			sql = "select item from voteItem where listnum=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				alist.add(rs.getString(1));
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt, rs);
+		}
+		return alist;
+	}
 }
 
 
