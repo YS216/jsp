@@ -15,11 +15,6 @@ function idCheck(id) {
 }
 
 function inputCheck() {
-	if(frm.id.value == "") {
-		alert("아이디를 입력해 주세요");
-		frm.id.focus();
-		return;
-	}
 	if(frm.idBtnCheck.value != "idCheck") {
 		alert("아이디 중복체크를 해주세요");
 		return;
