@@ -41,17 +41,3 @@ function inputCheck() {
 	}
 	frm.submit();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

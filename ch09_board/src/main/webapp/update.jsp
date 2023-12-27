@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="board.*" %>
+<%
+	int num = Integer.parseInt(request.getParameter("num"));	
+	Board board = (Board)session.getAttribute("bean");
+%>      
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,14 +15,14 @@
 </style>
 </head>
 <body>
-	<form action="boardPost" method="post">
+	<form action="boardUpdate" method="post">
 		<table align="center" >
 			<tr>
-				<th colspan="2" bgcolor="#66793C" height="30">수 정 하 기</th>
+				<th colspan="2" bgcolor="#D9E5FF" height="30">수 정 하 기</th>
 			</tr>
 			<tr>
 				<td width="15%">성명</td>
-				<td><input name="name"></td>
+				<td><%=board.getName() %></td>
 			</tr>
 			<tr>
 				<td>제목</td>
@@ -42,6 +47,7 @@
 				</td>
 			</tr>
 		</table>
+		<input type="hidden" name="num" value="<%=num %>">
 	</form>
 </body>
 </html>
