@@ -30,6 +30,15 @@ public class Board {
 		this.ip = ip;
 		this.count = count;
 	}
+	
+	public Board(String name, String subject, String content, String pass, String ip) {
+		super();
+		this.name = name;
+		this.subject = subject;
+		this.content = content;
+		this.pass = pass;
+		this.ip = ip;
+	}
 
 	public int getNum() {
 		return num;
