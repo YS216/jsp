@@ -54,7 +54,10 @@
 		</table>
 		<!-- 나의 정보 -->
 		<input type="hidden" name="ip" value="<%=request.getRemoteAddr() %>">
-
+		
+		<!-- 앞에서 넘어온 정보 -->
+		<input type="hidden" name="nowPage" value="<%=nowPage %>">
+		
 		<!-- 부모들의 정보 -->
 		<input type="hidden" name="ref" value="<%=board.getRef() %>">
 		<input type="hidden" name="pos" value="<%=board.getPos() %>">

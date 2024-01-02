@@ -27,11 +27,9 @@
 	}
 	
 	// [처음으로]를 누르면 keyField, keyWord를 지워줌
-	if(request.getParameter("reload") != null) {
-		if(request.getParameter("reload").equals("true")) {
-			keyField = "";
-			keyWord = "";
-		}
+	if(request.getParameter("reload") != null && request.getParameter("reload").equals("true")) {
+		keyField = "";
+		keyWord = "";
 	}
 	
 	// 다른페이지로 이동했다 다시 돌아왔을때와 [처음으로]를 눌렀을때
@@ -137,7 +135,7 @@
 		<div class="textAlign">
 			<%
 				int pageStart = (nowBlock-1) * pagePerBlock + 1;  // 어느블록에 속하는지 그 블록에 따른 첫번째 페이지
-				int pageEnd = ((pageStart + pagePerBlock) < totalPage) ? (pageStart + pagePerBlock) : totalPage+1;
+				int pageEnd = pageStart+pagePerBlock < totalPage ? pageStart+pagePerBlock : totalPage+1;
 				if(totalPage != 0) {
 					if(nowBlock > 1) {%>
 						<a href="javascript:block('<%=nowBlock-1 %>')">prev...</a>&nbsp;
@@ -155,8 +153,8 @@
 		
 		<div align="right">
 			<a href="post.jsp">[글쓰기]</a>&emsp;
-			<a href="javascript:list();">[처음으로]</a>&emsp;
-			<a href="../index.jsp">[홈으로]</a>&emsp;
+			<a href="javascript:list();">[처음으로]</a>
+			<a href="../index.jsp">[홈으로]</a>
 		</div>
 		<!-- 키워드 검색 -->
 		<form method="get" action="list.jsp">
@@ -181,7 +179,7 @@
 			<input type="hidden" name="nowPage" value="1">
 		</form>
 		
-		<form method="post" name="readFrm">
+		<form method="get" name="readFrm">
 			<input type="hidden" name="num">
 			<input type="hidden" name="nowPage" value="<%=nowPage %>">
 			<input type="hidden" name="keyField" value="<%=keyField %>">
@@ -190,10 +188,3 @@
 	</div>
 </body>
 </html>
-
-
-
-
-
-
-

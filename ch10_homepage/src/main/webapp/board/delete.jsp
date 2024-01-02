@@ -4,6 +4,7 @@
 <jsp:useBean id="bDao" class="board.BoardDao" />
 <%
 	int num = Integer.parseInt(request.getParameter("num"));
+	String nowPage = request.getParameter("nowPage");
 	
 	if(request.getParameter("pass") != null) {
 		String inputPass = request.getParameter("pass");
@@ -13,7 +14,7 @@
 		if(inputPass.equals(dbPass)) {
 			boolean result = bDao.deleteBoard(num);
 			if(result) {
-				response.sendRedirect("list.jsp");
+				response.sendRedirect("list.jsp?nowPage="+nowPage);
 			} else {
 %>
 				<script>
@@ -61,6 +62,7 @@
 			</td>
 		</tr>
 		<input type="hidden" name="num" value="<%=num %>">
+		<input type="hidden" name="nowPage" value="<%=nowPage %>">
 	</form>
 </body>
 </html>

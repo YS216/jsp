@@ -8,7 +8,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>BoardPostServlet</servlet-name>
-    <url-pattern>/boardPost</url-pattern>
+    <url-pattern>/board/boardPost</url-pattern>
   </servlet-mapping>
   <display-name>ch10_homepage</display-name>
   <welcome-file-list>
@@ -27,7 +27,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>BoardReplyServlet</servlet-name>
-    <url-pattern>/boardReply</url-pattern>
+    <url-pattern>/board/boardReply</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -37,6 +37,6 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>BoardUpdateServlet</servlet-name>
-    <url-pattern>/boardUpdate</url-pattern>
+    <url-pattern>/board/boardUpdate</url-pattern>
   </servlet-mapping>
 </web-app>
