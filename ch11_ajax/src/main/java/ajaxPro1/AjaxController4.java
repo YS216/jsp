@@ -26,8 +26,8 @@ public class AjaxController4 extends HttpServlet {
 			JSONObject jobj = new JSONObject();
 			jobj.put("id", m.getId());
 			jobj.put("name", m.getName());
-			jobj.put("gender", m.getGender());
-			jobj.put("email", m.getEmail());
+			jobj.put("gaender", m.getGender());
+			jobj.put("emil", m.getEmail());
 			jArr.add(jobj);
 		}
 		
